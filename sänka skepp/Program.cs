@@ -370,12 +370,6 @@ while (cont)
     // Save attack position in PlayingfieldCompAttack
     PlayingfieldCompAttack[compAttackCordY2, compAttackCordX2] = "  X";
 
-    CompWin();
-}
-
-
-void CompWin()
-{
     if (compHit == 10)
     {
         Console.WriteLine("Computer won!");
