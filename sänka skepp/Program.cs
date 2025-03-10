@@ -373,6 +373,10 @@ while (cont)
     CompWin();
 }
 
+void Tester()
+{
+    //hej hej
+}
 
 void CompWin()
 {
