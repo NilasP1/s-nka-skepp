@@ -64,7 +64,7 @@ int[] forbiddenNumbersX = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 for (int a = 0; a < 10; a++)
 {
     //Writes the user playingfield
-    WriteUserPlayingfield();
+    WriteField(PlayingfieldUser);
 
     bool isForbidden = false;
     //takes ship cords from user
@@ -214,7 +214,7 @@ for (int a = 0; a < 10; a++)
 
 
 //Writes the attack playingfield
-WritePlayingfieldUserattack();
+WriteField(Playingfielduserattack);
 
 bool cont = true;
 int hit = 0;
@@ -224,9 +224,9 @@ while (cont)
 {
     Console.Clear();
 
-    WriteUserPlayingfield();
+    WriteField(PlayingfieldUser);
 
-    WritePlayingfieldUserattack();
+    WriteField(Playingfielduserattack);
 
     //Asks the user for attack cords and checks if they are valid
     Console.WriteLine("where do you want to attack?");
@@ -258,9 +258,9 @@ while (cont)
     Console.Clear();
 
     Console.WriteLine(" ");
-    WriteUserPlayingfield();
+    WriteField(PlayingfieldUser);
 
-    WritePlayingfieldUserattack();
+    WriteField(Playingfielduserattack);
 
     //asks for x cords and saves. then checks if they are invalid.
     Console.WriteLine("X-cordinate");
@@ -299,9 +299,9 @@ while (cont)
     
 
     Console.WriteLine(" ");
-    WriteUserPlayingfield();
+    WriteField(PlayingfieldUser);
 
-    WritePlayingfieldUserattack();
+    WriteField(Playingfielduserattack);
 
 
     //Checks if you hit and marks it in the users attack playingfield
@@ -382,25 +382,8 @@ void CompWin()
         cont = false;
     }
 }
-void WriteUserPlayingfield()
-{
-         
-  Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
 
-    for (int i = 0; i < 10; i++)
-    {
-        Console.Write((i + 1) + " ");
-
-        for (int o = 0; o < 10; o++)
-        {
-           Console.Write(PlayingfieldUser[i, o] + " ");
-        }
-
-       Console.WriteLine();
-    }
-}
-
-void WritePlayingfieldUserattack()
+void WriteField(string[,] field)
 {
     Console.WriteLine(" ");
     Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
@@ -411,7 +394,7 @@ void WritePlayingfieldUserattack()
 
         for (int o = 0; o < 10; o++)
         {
-            Console.Write(Playingfielduserattack[i, o] + " ");
+            Console.Write(field[i, o] + " ");
         }
 
         Console.WriteLine();
