@@ -77,9 +77,7 @@ for (int a = 0; a < 10; a++)
     else
     {
         // Handle invalid input
-        Console.WriteLine("Invalid input, please enter a valid number.");
-        Thread.Sleep(3000);
-        Console.Clear();
+        InvalidShipPlacement();
         a--;
         continue;
     }
@@ -88,10 +86,8 @@ for (int a = 0; a < 10; a++)
     //Checks if they are valid
     if(Ycord < 0 || Ycord >= 10)
     {
-        Console.WriteLine("Invalid cordinates");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         a--;
-        Console.Clear();
         continue;
     }
 
@@ -104,9 +100,7 @@ for (int a = 0; a < 10; a++)
     else
     {
         // Handle invalid input
-        Console.WriteLine("Invalid input, please enter a valid number.");
-        Thread.Sleep(3000);
-        Console.Clear();
+        InvalidShipPlacement();
         a--;
         continue;
     }
@@ -114,10 +108,8 @@ for (int a = 0; a < 10; a++)
 
     if (Xcord < 0 || Xcord >= 10)
     {
-        Console.WriteLine("Invalid cordinates");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         a--;
-        Console.Clear();
         continue;
     }
 
@@ -231,7 +223,7 @@ while (cont)
 
     //Asks the user for attack cords and checks if they are valid
     Console.WriteLine("where do you want to attack?");
-    Console.WriteLine("Y-cordinate");
+    Console.WriteLine("Y-cordinate:");
 
     int attackY;
     if (int.TryParse(Console.ReadLine(), out attackY))
@@ -264,7 +256,7 @@ while (cont)
     WriteField(Playingfielduserattack);
 
     //asks for x cords and saves. then checks if they are invalid.
-    Console.WriteLine("X-cordinate");
+    Console.WriteLine("X-cordinate:");
 
     int attackX;
     if (int.TryParse(Console.ReadLine(), out attackX))
@@ -395,4 +387,11 @@ void WriteField(string[,] field)
 
         Console.WriteLine();
     }
+}
+
+void InvalidShipPlacement()
+{
+    Console.WriteLine("Invalid input, please enter a valid number.");
+    Thread.Sleep(3000);
+    Console.Clear();
 }
