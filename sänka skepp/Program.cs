@@ -233,8 +233,7 @@ while (cont)
     else
     {
         // Handle invalid input
-        Console.WriteLine("Invalid input, please enter a valid number.");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         continue;
     }
 
@@ -242,8 +241,7 @@ while (cont)
 
     if(attackY <= -1 || attackY >= 11)
     {
-        Console.WriteLine("Invalid cordinates");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         continue;
     }
 
@@ -266,8 +264,7 @@ while (cont)
     else
     {
         // Handle invalid input
-        Console.WriteLine("Invalid input, please enter a valid number.");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         continue;
     }
 
@@ -275,15 +272,13 @@ while (cont)
 
     if (attackX <= -1 || attackX >= 11)
     {
-        Console.WriteLine("Invalid cordinates");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         continue;
     }
 
     if (Playingfielduserattack[attackX, attackY] == "  X" || Playingfielduserattack[attackX, attackY] == "  O" )
     {
-        Console.WriteLine("You have already attacked that spot.");
-        Thread.Sleep(3000);
+        InvalidShipPlacement();
         continue;
     }
 
