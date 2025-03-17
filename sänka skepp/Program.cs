@@ -66,7 +66,6 @@ for (int a = 0; a < 10; a++)
     //Writes the user playingfield
     WriteField(PlayingfieldUser);
 
-    bool isForbidden = false;
     //takes ship cords from user
     Console.WriteLine("Where do you want to place your ship?");
     Console.WriteLine("Coordinate Y:");
@@ -81,6 +80,7 @@ for (int a = 0; a < 10; a++)
         Console.WriteLine("Invalid input, please enter a valid number.");
         Thread.Sleep(3000);
         Console.Clear();
+        a--;
         continue;
     }
     Ycord--;
@@ -89,7 +89,10 @@ for (int a = 0; a < 10; a++)
     if(Ycord < 0 || Ycord >= 10)
     {
         Console.WriteLine("Invalid cordinates");
-        isForbidden = true;
+        Thread.Sleep(3000);
+        a--;
+        Console.Clear();
+        continue;
     }
 
     Console.WriteLine("And now the X coordinate:");
@@ -104,6 +107,7 @@ for (int a = 0; a < 10; a++)
         Console.WriteLine("Invalid input, please enter a valid number.");
         Thread.Sleep(3000);
         Console.Clear();
+        a--;
         continue;
     }
     Xcord--;
@@ -111,7 +115,10 @@ for (int a = 0; a < 10; a++)
     if (Xcord < 0 || Xcord >= 10)
     {
         Console.WriteLine("Invalid cordinates");
-        isForbidden = true;
+        Thread.Sleep(3000);
+        a--;
+        Console.Clear();
+        continue;
     }
 
     // Check if the coordinates are already forbidden
@@ -120,20 +127,12 @@ for (int a = 0; a < 10; a++)
     {
         if (Ycord == forbiddenNumbersY[g] && Xcord == forbiddenNumbersX[g])
         {
-            isForbidden = true;
+           
             break;
         }
     }
 
-    // If forbidden, prompt user to choose again
-    if (isForbidden)
-    {
-        Console.Clear();
-        Console.WriteLine("These coordinates are forbidden. Please choose different ones.");
-        a--; // Decrement `a` to retry this iteration
-       
-        continue; // Restart the loop
-    }
+   
 
     // Place the ship and mark the coordinates as forbidden
     PlayingfieldUser[Ycord, Xcord] = "  O";
@@ -364,6 +363,7 @@ while (cont)
     else
     {
         Console.WriteLine("Computer missed.");
+        Thread.Sleep(2000);
         PlayingfieldUser[compAttackCordY2, compAttackCordX2] = "  X";
     }
 
