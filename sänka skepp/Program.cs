@@ -127,7 +127,9 @@ for (int a = 0; a < 10; a++)
     {
         if (Ycord == forbiddenNumbersY[g] && Xcord == forbiddenNumbersX[g])
         {
-           
+            Console.WriteLine("There is already a ship in this spot");
+            Thread.Sleep(3000);
+            a--;
             break;
         }
     }
