@@ -1,7 +1,7 @@
 ﻿
 
 
-using static System.Net.Mime.MediaTypeNames;
+
 
 //The users playingfireld where they place ships
 string[,] PlayingfieldUser = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
@@ -143,22 +143,6 @@ Console.Clear();
 
 Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
 
-//Writes the playingfield to the user after thay are finished choosing
-for (int i = 0; i < 10; i++)
-{
-    Console.Write((i + 1) + " ");
-
-    for (int o = 0; o < 10; o++)
-    {
-        Console.Write(PlayingfieldUser[i, o] + " ");
-    }
-
-    Console.WriteLine();
-}
-
-
-
-
 Random random = new Random();
 
 //The forbidden numbers for when the computer is choosing
@@ -203,11 +187,6 @@ for (int a = 0; a < 10; a++)
     forbiddenNumbersXcomp[a] = Xcordcomp;
 
 }
-
-
-
-//Writes the attack playingfield
-WriteField(Playingfielduserattack);
 
 bool cont = true;
 int hit = 0;
