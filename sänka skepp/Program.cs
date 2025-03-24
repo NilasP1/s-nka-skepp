@@ -126,8 +126,6 @@ for (int a = 0; a < 10; a++)
         }
     }
 
-   
-
     // Place the ship and mark the coordinates as forbidden
     PlayingfieldUser[Ycord, Xcord] = "  O";
 
@@ -149,14 +147,11 @@ Random random = new Random();
 int[] forbiddenNumbersYcomp = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 int[] forbiddenNumbersXcomp = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 
-
 for (int a = 0; a < 10; a++)
 {
-
     //takes random ship cords
     int Ycordcomp = random.Next(1, 11);
     Ycordcomp--;
-
 
     int Xcordcomp = random.Next(1, 11);
     Xcordcomp--;
@@ -263,13 +258,10 @@ while (cont)
 
     //Clears everything and writes it again
     Console.Clear();
-    
-
     Console.WriteLine(" ");
     WriteField(PlayingfieldUser);
 
     WriteField(Playingfielduserattack);
-
 
     //Checks if you hit and marks it in the users attack playingfield
     if (Playingfieldcomputer[attackY, attackX] == "  O")
@@ -297,8 +289,6 @@ while (cont)
         Console.WriteLine("You Won!");
         break;
     }
-
-
 
     int compAttackCordY2 = 0;
     int compAttackCordX2 = 0;
