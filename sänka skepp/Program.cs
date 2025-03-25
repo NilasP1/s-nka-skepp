@@ -56,7 +56,6 @@ string[,] PlayingfieldCompAttack = {
     { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
     };
 
-
 //arrays for the numbers that are forbidden
 int[] forbiddenNumbersY = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 int[] forbiddenNumbersX = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
@@ -352,7 +351,6 @@ void WriteField(string[,] field)
         Console.WriteLine();
     }
 }
-
 void InvalidShipPlacement()
 {
     Console.WriteLine("Invalid input, please enter a valid number.");
