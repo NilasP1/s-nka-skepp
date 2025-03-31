@@ -13,7 +13,7 @@ string[,] PlayingfieldUser = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #"
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { " #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" } 
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" } 
 };
 
 //The computers playingfireld where it places it's ships
@@ -26,7 +26,7 @@ string[,] Playingfieldcomputer = { { "  #", "  #", "  #", "  #", "  #", "  #", "
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { " #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
 };
 
 //The playingfield that the user uses to attack
@@ -39,22 +39,21 @@ string[,] Playingfielduserattack = { { "  #", "  #", "  #", "  #", "  #", "  #",
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
                                { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { " #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
 };
 
 //Computers attack playingfield
-string[,] PlayingfieldCompAttack = {    
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-    { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
-    };
+string[,] PlayingfieldCompAttack = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
+                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
+};
 
 //arrays for the numbers that are forbidden
 int[] forbiddenNumbersY = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
@@ -193,6 +192,9 @@ while (cont)
     WriteField(PlayingfieldUser);
 
     WriteField(Playingfielduserattack);
+    Console.WriteLine(" ");
+    Console.WriteLine("You have hit: " + hit + " of the computers ships");
+    Console.WriteLine(" ");
 
     //Asks the user for attack cords and checks if they are valid
     Console.WriteLine("where do you want to attack?");
@@ -225,6 +227,9 @@ while (cont)
     WriteField(PlayingfieldUser);
 
     WriteField(Playingfielduserattack);
+    Console.WriteLine(" ");
+    Console.WriteLine("You have hit: " + hit + " of the computers ships");
+    Console.WriteLine(" ");
 
     //asks for x cords and saves. then checks if they are invalid.
     Console.WriteLine("X-cordinate:");
@@ -249,7 +254,7 @@ while (cont)
         continue;
     }
 
-    if (Playingfielduserattack[attackX, attackY] == "  X" || Playingfielduserattack[attackX, attackY] == "  O" )
+    if (Playingfielduserattack[attackY, attackX] == "  X" || Playingfielduserattack[attackY, attackX] == "  O" )
     {
         InvalidShipPlacement();
         continue;
@@ -261,17 +266,21 @@ while (cont)
     WriteField(PlayingfieldUser);
 
     WriteField(Playingfielduserattack);
+    Console.WriteLine(" ");
+    Console.WriteLine("You have hit: " + hit + " of the computers ships");
+    Console.WriteLine(" ");
 
     //Checks if you hit and marks it in the users attack playingfield
     if (Playingfieldcomputer[attackY, attackX] == "  O")
     {
       
-        Playingfielduserattack[attackY, attackX] = "  O";
+        
         hit++;
 
         Console.WriteLine("HIT!");
         Console.WriteLine(" ");
         Thread.Sleep(3000);
+        Playingfielduserattack[attackX, attackY] = "  X";
     }
     else
     {
@@ -337,18 +346,28 @@ while (cont)
 void WriteField(string[,] field)
 {
     Console.WriteLine(" ");
-    Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
+    Console.WriteLine("   \t  1   2   3   4   5   6   7   8   9   10");
 
     for (int i = 0; i < 10; i++)
     {
-        Console.Write((i + 1) + " ");
+        Console.Write((i + 1) + "\t");
+
+        Console.BackgroundColor = ConsoleColor.Blue;
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
 
         for (int o = 0; o < 10; o++)
         {
+            if (field[i, o] == "  O")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
             Console.Write(field[i, o] + " ");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
         }
 
         Console.WriteLine();
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Gray;
     }
 }
 void InvalidShipPlacement()
