@@ -2,6 +2,9 @@
 
 
 
+Console.BackgroundColor = ConsoleColor.DarkMagenta;
+Console.ForegroundColor = ConsoleColor.Black;
+Console.Clear();
 
 //The users playingfireld where they place ships
 string[,] PlayingfieldUser = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
@@ -366,8 +369,8 @@ void WriteField(string[,] field)
         }
 
         Console.WriteLine();
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Black;
     }
 }
 void InvalidShipPlacement()
