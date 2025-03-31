@@ -283,7 +283,7 @@ while (cont)
         Console.WriteLine("HIT!");
         Console.WriteLine(" ");
         Thread.Sleep(3000);
-        Playingfielduserattack[attackX, attackY] = "  X";
+        Playingfielduserattack[attackY, attackX] = "  X";
     }
     else
     {
