@@ -139,9 +139,7 @@ for (int a = 0; a < 10; a++)
 }
 
 Console.Clear();
-
 Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
-
 Random random = new Random();
 
 //The forbidden numbers for when the computer is choosing
@@ -153,7 +151,6 @@ for (int a = 0; a < 10; a++)
     //takes random ship cords
     int Ycordcomp = random.Next(1, 11);
     Ycordcomp--;
-
     int Xcordcomp = random.Next(1, 11);
     Xcordcomp--;
 
@@ -193,7 +190,6 @@ while (cont)
     Console.Clear();
 
     WriteField(PlayingfieldUser);
-
     WriteField(Playingfielduserattack);
     Console.WriteLine(" ");
     Console.WriteLine("You have hit: " + hit + " of the computers ships");
@@ -228,7 +224,6 @@ while (cont)
 
     Console.WriteLine(" ");
     WriteField(PlayingfieldUser);
-
     WriteField(Playingfielduserattack);
     Console.WriteLine(" ");
     Console.WriteLine("You have hit: " + hit + " of the computers ships");
@@ -276,10 +271,7 @@ while (cont)
     //Checks if you hit and marks it in the users attack playingfield
     if (Playingfieldcomputer[attackY, attackX] == "  O")
     {
-      
-        
         hit++;
-
         Console.WriteLine("HIT!");
         Console.WriteLine(" ");
         Thread.Sleep(3000);
@@ -288,7 +280,6 @@ while (cont)
     else
     {
         Playingfielduserattack[attackY, attackX] = "  X";
-     
         Console.WriteLine(" ");
     }
 
@@ -314,7 +305,6 @@ while (cont)
         {
             continue; // find new attack position
         }
-
         // Found attack position
         compAttackCordY2 = compAttackCordY;
         compAttackCordX2 = compAttackCordX;
@@ -354,7 +344,6 @@ void WriteField(string[,] field)
     for (int i = 0; i < 10; i++)
     {
         Console.Write((i + 1) + "\t");
-
         Console.BackgroundColor = ConsoleColor.Blue;
         Console.ForegroundColor = ConsoleColor.DarkBlue;
 
