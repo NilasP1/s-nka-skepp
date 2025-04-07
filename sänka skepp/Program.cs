@@ -7,63 +7,60 @@ Console.ForegroundColor = ConsoleColor.Black;
 Console.Clear();
 
 //The users playingfireld where they place ships
-string[,] PlayingfieldUser = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" } 
-};
+string[,] PlayingfieldUser = new string[10, 10];
+
+for (int y = 0; y < 10; y++)
+{
+    for (int x = 0; x < 10; x++)
+    {
+        PlayingfieldUser[y, x] = "  #";
+    }
+}
+
 
 //The computers playingfireld where it places it's ships
-string[,] Playingfieldcomputer = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
-};
+string[,] Playingfieldcomputer = new string[10, 10];
+
+for (int y = 0; y < 10; y++)
+{
+    for (int x = 0; x < 10; x++)
+    {
+        Playingfieldcomputer[y, x] = "  #";
+    }
+}
+
 
 //The playingfield that the user uses to attack
-string[,] Playingfielduserattack = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
-};
+string[,] Playingfielduserattack = new string[10, 10];
+
+for (int y = 0; y < 10; y++)
+{
+    for (int x = 0; x < 10; x++)
+    {
+        Playingfielduserattack[y, x] = "  #";
+    }
+}
+
 
 //Computers attack playingfield
-string[,] PlayingfieldCompAttack = { { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" },
-                               { "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #", "  #" }
-};
+string[,] PlayingfieldCompAttack = new string[10, 10];
 
-//arrays for the numbers that are forbidden
-int[] forbiddenNumbersY = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-int[] forbiddenNumbersX = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-
-for (int a = 0; a < 10; a++)
+for (int y = 0; y < 10; y++)
 {
+    for (int x = 0; x < 10; x++)
+    {
+        PlayingfieldCompAttack[y, x] = "  #";
+    }
+}
+
+
+//ForbiddenNumbers array
+bool[,] ForbiddenNumbers = new bool[10, 10]; // false by default
+
+
+for (int a = 0; a < 5; a++)
+{
+    Console.Clear();
     //Writes the user playingfield
     WriteField(PlayingfieldUser);
 
@@ -115,23 +112,86 @@ for (int a = 0; a < 10; a++)
     }
 
     // Check if the coordinates are already forbidden
-    
-    for (int g = 0; g < 10; g++)
+
+    if (ForbiddenNumbers[Ycord, Xcord])
     {
-        if (Ycord == forbiddenNumbersY[g] && Xcord == forbiddenNumbersX[g])
+        Console.WriteLine("There is already a ship in this spot");
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+        a--;
+        continue;
+    }
+
+    string ShipDirection = "";
+    while (ShipDirection != "h" && ShipDirection != "v")
+    {
+        Console.WriteLine("Do you want to place it vertically (V) or horizontally (H)?");
+        string input = Console.ReadLine();
+        ShipDirection = (input ?? "").ToLower();
+
+        if (ShipDirection != "h" && ShipDirection != "v")
         {
-            Console.WriteLine("There is already a ship in this spot");
-            Thread.Sleep(3000);
-            a--;
-            break;
+            Console.WriteLine("Invalid input. Please enter 'H' or 'V'.");
+            Console.WriteLine("Press any key to try again...");
+            Console.ReadKey();
+            Console.Clear();
+            WriteField(PlayingfieldUser); // reprint the field so it doesn't disappear
         }
     }
 
-    // Place the ship and mark the coordinates as forbidden
-    PlayingfieldUser[Ycord, Xcord] = "  O";
+    if (ShipDirection == "h") 
+    {
+        // Make sure it's within bounds first
+        if (Xcord + 1 >= 10)
+        {
+            InvalidShipPlacement();
+            a--;
+            continue;
+        }
 
-    forbiddenNumbersY[a] = Ycord;
-    forbiddenNumbersX[a] = Xcord;
+        if (ForbiddenNumbers[Ycord, Xcord + 1])
+        {
+            Console.WriteLine("There is already a ship in this spot");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            a--;
+            continue;
+        }
+
+        PlayingfieldUser[Ycord, Xcord] = "  O";
+        PlayingfieldUser[Ycord, Xcord + 1] = "  O";
+
+        // Mark as forbidden
+        ForbiddenNumbers[Ycord, Xcord] = true;
+        ForbiddenNumbers[Ycord, Xcord + 1] = true;
+    }
+
+    if (ShipDirection == "v") 
+    {
+        // Make sure it's within bounds first
+        if (Xcord + 1 >= 10)
+        {
+            InvalidShipPlacement();
+            a--;
+            continue;
+        }
+
+        if (ForbiddenNumbers[Ycord + 1, Xcord])
+        {
+            Console.WriteLine("There is already a ship in this spot");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            a--;
+            continue;
+        }
+
+        PlayingfieldUser[Ycord, Xcord] = "  O";
+        PlayingfieldUser[Ycord + 1, Xcord] = "  O";
+
+        // Mark as forbidden
+        ForbiddenNumbers[Ycord, Xcord] = true;
+        ForbiddenNumbers[Ycord + 1, Xcord] = true;
+    }
 
     Console.Clear();
     Console.WriteLine("Next ship");
@@ -143,42 +203,50 @@ Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
 Random random = new Random();
 
 //The forbidden numbers for when the computer is choosing
-int[] forbiddenNumbersYcomp = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-int[] forbiddenNumbersXcomp = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+bool[,] ForbiddenNumbersComp = new bool[10, 10];
 
-for (int a = 0; a < 10; a++)
+for (int a = 0; a < 5; a++) // Only place 5 ships
 {
-    //takes random ship cords
-    int Ycordcomp = random.Next(1, 11);
-    Ycordcomp--;
-    int Xcordcomp = random.Next(1, 11);
-    Xcordcomp--;
+    bool placed = false;
 
-    // Check if the coordinates are already forbidden
-    bool isForbiddencomp = false;
-    for (int g = 0; g < 10; g++)
+    while (!placed)
     {
-        if (Ycordcomp == forbiddenNumbersYcomp[g] && Xcordcomp == forbiddenNumbersXcomp[g])
+        int Ycordcomp = random.Next(0, 10);
+        int Xcordcomp = random.Next(0, 10);
+
+        bool isHorizontal = random.Next(2) == 0; // 0 = horizontal, 1 = vertical
+
+        if (isHorizontal)
         {
-            isForbiddencomp = true;
-            break;
+            if (Xcordcomp + 1 >= 10) continue; // Prevent out-of-bounds
+
+            if (ForbiddenNumbersComp[Ycordcomp, Xcordcomp] || ForbiddenNumbersComp[Ycordcomp, Xcordcomp + 1])
+                continue;
+
+            // Place horizontal ship
+            Playingfieldcomputer[Ycordcomp, Xcordcomp] = "  O";
+            Playingfieldcomputer[Ycordcomp, Xcordcomp + 1] = "  O";
+
+            ForbiddenNumbersComp[Ycordcomp, Xcordcomp] = true;
+            ForbiddenNumbersComp[Ycordcomp, Xcordcomp + 1] = true;
+            placed = true;
+        }
+        else
+        {
+            if (Ycordcomp + 1 >= 10) continue; // Prevent out-of-bounds
+
+            if (ForbiddenNumbersComp[Ycordcomp, Xcordcomp] || ForbiddenNumbersComp[Ycordcomp + 1, Xcordcomp])
+                continue;
+
+            // Place vertical ship
+            Playingfieldcomputer[Ycordcomp, Xcordcomp] = "  O";
+            Playingfieldcomputer[Ycordcomp + 1, Xcordcomp] = "  O";
+
+            ForbiddenNumbersComp[Ycordcomp, Xcordcomp] = true;
+            ForbiddenNumbersComp[Ycordcomp + 1, Xcordcomp] = true;
+            placed = true;
         }
     }
-
-    // If forbidden, computer choose again
-    if (isForbiddencomp)
-    {
-        a--; // Decrement `a` to retry this iteration
-
-        continue; // Restart the loop
-    }
-
-    // Place the ship and mark the coordinates as forbidden
-    Playingfieldcomputer[Ycordcomp, Xcordcomp] = "  O";
-
-    forbiddenNumbersYcomp[a] = Ycordcomp;
-    forbiddenNumbersXcomp[a] = Xcordcomp;
-
 }
 
 bool cont = true;
@@ -213,7 +281,7 @@ while (cont)
 
     attackY--;
 
-    if(attackY <= -1 || attackY >= 11)
+    if(attackY <= 0 || attackY >= 10)
     {
         InvalidShipPlacement();
         continue;
@@ -246,7 +314,7 @@ while (cont)
 
     attackX--;
 
-    if (attackX <= -1 || attackX >= 11)
+    if (attackX <= 0 || attackX >= 10)
     {
         InvalidShipPlacement();
         continue;
@@ -274,7 +342,9 @@ while (cont)
         hit++;
         Console.WriteLine("HIT!");
         Console.WriteLine(" ");
-        Thread.Sleep(3000);
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+
         Playingfielduserattack[attackY, attackX] = "  X";
     }
     else
@@ -315,14 +385,18 @@ while (cont)
     if (PlayingfieldUser[compAttackCordY2, compAttackCordX2] == "  O")
     {
         Console.WriteLine($"Computer hit your ship on Y: {compAttackCordY2 + 1}, X: {compAttackCordX2 + 1}");
-        Thread.Sleep(3000);
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+
         PlayingfieldUser[compAttackCordY2, compAttackCordX2] = "  X";
         compHit++;
     }
     else
     {
         Console.WriteLine("Computer missed.");
-        Thread.Sleep(2000);
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+
         PlayingfieldUser[compAttackCordY2, compAttackCordX2] = "  X";
     }
 
@@ -336,6 +410,7 @@ while (cont)
     }
 }
 
+//Method for drawing the playingfields
 void WriteField(string[,] field)
 {
     Console.WriteLine(" ");
@@ -362,9 +437,12 @@ void WriteField(string[,] field)
         Console.ForegroundColor = ConsoleColor.Black;
     }
 }
+//Method for error in coordinate selection
 void InvalidShipPlacement()
 {
     Console.WriteLine("Invalid input, please enter a valid number.");
-    Thread.Sleep(3000);
+    Console.WriteLine("Press any key to continue...");
+    Console.ReadKey();
+
     Console.Clear();
 }
