@@ -122,6 +122,7 @@ for (int a = 0; a < 5; a++)
         continue;
     }
 
+    //asks if you want to place it verticaly or horizontaly and then saves the answer
     string ShipDirection = "";
     while (ShipDirection != "h" && ShipDirection != "v")
     {
@@ -129,6 +130,7 @@ for (int a = 0; a < 5; a++)
         string input = Console.ReadLine();
         ShipDirection = (input ?? "").ToLower();
 
+        //checks if it is a valid input
         if (ShipDirection != "h" && ShipDirection != "v")
         {
             Console.WriteLine("Invalid input. Please enter 'H' or 'V'.");
@@ -154,13 +156,58 @@ for (int a = 0; a < 5; a++)
             Console.WriteLine("There is already a ship in this spot");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
-            a--;
+            a--; 
             continue;
+        }
+
+        if(a == 2)
+        {
+            if (Xcord + 2 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+        }
+        else if(a == 3)
+        {
+            if (Xcord + 3 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+
+            PlayingfieldUser[Ycord, Xcord + 3] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 3] = true;
+        }
+        else if (a == 4)
+        {
+            if (Xcord + 4 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+
+            PlayingfieldUser[Ycord, Xcord + 3] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 3] = true;
+
+            PlayingfieldUser[Ycord, Xcord + 4] = "  O";
+            ForbiddenNumbers[Ycord, Xcord + 4] = true;
         }
 
         PlayingfieldUser[Ycord, Xcord] = "  O";
         PlayingfieldUser[Ycord, Xcord + 1] = "  O";
-
         // Mark as forbidden
         ForbiddenNumbers[Ycord, Xcord] = true;
         ForbiddenNumbers[Ycord, Xcord + 1] = true;
@@ -169,7 +216,7 @@ for (int a = 0; a < 5; a++)
     if (ShipDirection == "v") 
     {
         // Make sure it's within bounds first
-        if (Xcord + 1 >= 10)
+        if (Ycord + 1 >= 10)
         {
             InvalidShipPlacement();
             a--;
@@ -185,9 +232,56 @@ for (int a = 0; a < 5; a++)
             continue;
         }
 
+        
+
+        if (a == 2)
+        {
+            if (Ycord + 2 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+        }
+        else if (a == 3)
+        {
+            if (Ycord + 3 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+
+            PlayingfieldUser[Ycord + 3, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 3, Xcord] = true;
+        }
+        else if (a == 4)
+        {
+            if (Ycord + 4 >= 10)
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
+
+            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+
+            PlayingfieldUser[Ycord + 3, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 3, Xcord] = true;
+
+            PlayingfieldUser[Ycord + 4, Xcord] = "  O";
+            ForbiddenNumbers[Ycord + 4, Xcord] = true;
+        }
+
         PlayingfieldUser[Ycord, Xcord] = "  O";
         PlayingfieldUser[Ycord + 1, Xcord] = "  O";
-
         // Mark as forbidden
         ForbiddenNumbers[Ycord, Xcord] = true;
         ForbiddenNumbers[Ycord + 1, Xcord] = true;
@@ -202,10 +296,15 @@ Console.Clear();
 Console.WriteLine("    1   2   3   4   5   6   7   8   9   10");
 Random random = new Random();
 
-//The forbidden numbers for when the computer is choosing
+// The forbidden numbers for when the computer is choosing
 bool[,] ForbiddenNumbersComp = new bool[10, 10];
 
-for (int a = 0; a < 5; a++) // Only place 5 ships
+// Ship lengths to place
+int[] shipLengths = { 2, 2, 3, 4, 5 };
+int shipIndex = 0; // To keep track of the current ship we are placing
+
+// Place 5 ships with predefined lengths
+while (shipIndex < shipLengths.Length)
 {
     bool placed = false;
 
@@ -213,40 +312,68 @@ for (int a = 0; a < 5; a++) // Only place 5 ships
     {
         int Ycordcomp = random.Next(0, 10);
         int Xcordcomp = random.Next(0, 10);
+        int shipLength = shipLengths[shipIndex]; // Get the length of the current ship
 
         bool isHorizontal = random.Next(2) == 0; // 0 = horizontal, 1 = vertical
 
         if (isHorizontal)
         {
-            if (Xcordcomp + 1 >= 10) continue; // Prevent out-of-bounds
+            if (Xcordcomp + shipLength > 10) continue; // Prevent out-of-bounds
 
-            if (ForbiddenNumbersComp[Ycordcomp, Xcordcomp] || ForbiddenNumbersComp[Ycordcomp, Xcordcomp + 1])
-                continue;
+            bool canPlace = true;
+            // Check if the ship can be placed horizontally
+            for (int i = 0; i < shipLength; i++)
+            {
+                if (ForbiddenNumbersComp[Ycordcomp, Xcordcomp + i])
+                {
+                    canPlace = false;
+                    break;
+                }
+            }
 
-            // Place horizontal ship
-            Playingfieldcomputer[Ycordcomp, Xcordcomp] = "  O";
-            Playingfieldcomputer[Ycordcomp, Xcordcomp + 1] = "  O";
+            if (canPlace)
+            {
+                // Place horizontal ship
+                for (int i = 0; i < shipLength; i++)
+                {
+                    Playingfieldcomputer[Ycordcomp, Xcordcomp + i] = "  O";
+                    ForbiddenNumbersComp[Ycordcomp, Xcordcomp + i] = true;
+                }
 
-            ForbiddenNumbersComp[Ycordcomp, Xcordcomp] = true;
-            ForbiddenNumbersComp[Ycordcomp, Xcordcomp + 1] = true;
-            placed = true;
+                placed = true;
+            }
         }
         else
         {
-            if (Ycordcomp + 1 >= 10) continue; // Prevent out-of-bounds
+            if (Ycordcomp + shipLength > 10) continue; // Prevent out-of-bounds
 
-            if (ForbiddenNumbersComp[Ycordcomp, Xcordcomp] || ForbiddenNumbersComp[Ycordcomp + 1, Xcordcomp])
-                continue;
+            bool canPlace = true;
+            // Check if the ship can be placed vertically
+            for (int i = 0; i < shipLength; i++)
+            {
+                if (ForbiddenNumbersComp[Ycordcomp + i, Xcordcomp])
+                {
+                    canPlace = false;
+                    break;
+                }
+            }
 
-            // Place vertical ship
-            Playingfieldcomputer[Ycordcomp, Xcordcomp] = "  O";
-            Playingfieldcomputer[Ycordcomp + 1, Xcordcomp] = "  O";
+            if (canPlace)
+            {
+                // Place vertical ship
+                for (int i = 0; i < shipLength; i++)
+                {
+                    Playingfieldcomputer[Ycordcomp + i, Xcordcomp] = "  O";
+                    ForbiddenNumbersComp[Ycordcomp + i, Xcordcomp] = true;
+                }
 
-            ForbiddenNumbersComp[Ycordcomp, Xcordcomp] = true;
-            ForbiddenNumbersComp[Ycordcomp + 1, Xcordcomp] = true;
-            placed = true;
+                placed = true;
+            }
         }
     }
+
+    // Move to the next ship
+    shipIndex++;
 }
 
 bool cont = true;
@@ -281,7 +408,7 @@ while (cont)
 
     attackY--;
 
-    if(attackY <= 0 || attackY >= 10)
+    if(attackY <= -1 || attackY >= 10)
     {
         InvalidShipPlacement();
         continue;
@@ -314,7 +441,7 @@ while (cont)
 
     attackX--;
 
-    if (attackX <= 0 || attackX >= 10)
+    if (attackX <= -1 || attackX >= 10)
     {
         InvalidShipPlacement();
         continue;
