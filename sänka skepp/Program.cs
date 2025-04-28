@@ -299,9 +299,9 @@ Random random = new Random();
 // The forbidden numbers for when the computer is choosing
 bool[,] ForbiddenNumbersComp = new bool[10, 10];
 
-// Ship lengths to place
-int[] shipLengths = { 2, 2, 3, 4, 5 };
-int shipIndex = 0; // To keep track of the current ship we are placing
+// Define the ship lengths
+int[] shipLengths = new int[] { 2, 2, 3, 4, 5 };
+int shipIndex = 0;
 
 // Place 5 ships with predefined lengths
 while (shipIndex < shipLengths.Length)
@@ -482,7 +482,7 @@ while (cont)
 
     //Checks if you hit 10 times and won
 
-    if (hit == 10)
+    if (hit == 16)
     {
         cont = false;
         Console.WriteLine("You Won!");
@@ -530,7 +530,7 @@ while (cont)
     // Save attack position in PlayingfieldCompAttack
     PlayingfieldCompAttack[compAttackCordY2, compAttackCordX2] = "  X";
 
-    if (compHit == 10)
+    if (compHit == 16)
     {
         Console.WriteLine("Computer won!");
         cont = false;
