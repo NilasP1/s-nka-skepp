@@ -169,11 +169,16 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            if (TryPlaceShip(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+                // Successfully placed ship
             }
+            else
+            {
+                a--;
+                continue;
+            }
+
         }
         else if(a == 3)
         {
@@ -184,29 +189,26 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            if (TryPlaceShip(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+                // Successfully placed ship
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 3] == false)
+            if (TryPlaceShip(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 3] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 3] = true;
+                // Successfully placed ship
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
+
         }
         else if (a == 4)
         {
@@ -217,41 +219,36 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            if (TryPlaceShip(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+                // Successfully placed ship
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 3] == false)
+            if (TryPlaceShip(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 3] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 3] = true;
+                // Successfully placed ship
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord, Xcord + 4] == false)
+            if (TryPlaceShip(Ycord, Xcord, 4, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord, Xcord + 4] = "  O";
-                ForbiddenNumbers[Ycord, Xcord + 4] = true;
+                // Successfully placed ship
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
+
         }
 
         PlayingfieldUser[Ycord, Xcord] = "  O";
@@ -280,8 +277,6 @@ for (int a = 0; a < 5; a++)
             continue;
         }
 
-        
-
         if (a == 2)
         {
             if (Ycord + 2 >= 10)
@@ -291,14 +286,12 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            if (TryPlaceShipVertical(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
@@ -312,29 +305,27 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            if (TryPlaceShipVertical(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 3, Xcord] == false)
+
+            if (TryPlaceShipVertical(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 3, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 3, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
+
         }
         else if (a == 4)
         {
@@ -345,38 +336,34 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            if (TryPlaceShipVertical(Ycord, Xcord, 2, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 3, Xcord] == false)
+
+            if (TryPlaceShipVertical(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 3, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 3, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
 
-            if (ForbiddenNumbers[Ycord + 4, Xcord] == false)
+
+            if (TryPlaceShipVertical(Ycord, Xcord, 4, PlayingfieldUser, ForbiddenNumbers))
             {
-                PlayingfieldUser[Ycord + 4, Xcord] = "  O";
-                ForbiddenNumbers[Ycord + 4, Xcord] = true;
+                // Placed successfully
             }
             else
             {
-                InvalidShipPlacement();
                 a--;
                 continue;
             }
@@ -666,6 +653,36 @@ void WriteField(string[,] field)
         Console.ForegroundColor = ConsoleColor.Black;
     }
 }
+bool TryPlaceShip(int y, int x, int xOffset, string[,] playingField, bool[,] forbiddenNumbers)
+{
+    if (!forbiddenNumbers[y, x + xOffset])
+    {
+        playingField[y, x + xOffset] = "  O";
+        forbiddenNumbers[y, x + xOffset] = true;
+        return true;
+    }
+    else
+    {
+        InvalidShipPlacement();
+        return false;
+    }
+}
+
+bool TryPlaceShipVertical(int y, int x, int yOffset, string[,] playingField, bool[,] forbiddenNumbers)
+{
+    if (!forbiddenNumbers[y + yOffset, x])
+    {
+        playingField[y + yOffset, x] = "  O";
+        forbiddenNumbers[y + yOffset, x] = true;
+        return true;
+    }
+    else
+    {
+        InvalidShipPlacement();
+        return false;
+    }
+}
+
 
 //Method for error in coordinate selection
 void InvalidShipPlacement()
