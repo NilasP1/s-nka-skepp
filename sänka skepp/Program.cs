@@ -2,7 +2,7 @@
 
 
 
-Console.BackgroundColor = ConsoleColor.DarkMagenta;
+Console.BackgroundColor = ConsoleColor.DarkGreen;
 Console.ForegroundColor = ConsoleColor.Black;
 Console.Clear();
 
@@ -169,8 +169,11 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            }
         }
         else if(a == 3)
         {
@@ -181,11 +184,29 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord, Xcord + 3] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 3] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 3] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 3] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 3] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
         }
         else if (a == 4)
         {
@@ -196,14 +217,41 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord, Xcord + 2] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 2] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 2] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 2] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord, Xcord + 3] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 3] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 3] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 3] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 3] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord, Xcord + 4] = "  O";
-            ForbiddenNumbers[Ycord, Xcord + 4] = true;
+            if (ForbiddenNumbers[Ycord, Xcord + 4] == false)
+            {
+                PlayingfieldUser[Ycord, Xcord + 4] = "  O";
+                ForbiddenNumbers[Ycord, Xcord + 4] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
         }
 
         PlayingfieldUser[Ycord, Xcord] = "  O";
@@ -243,8 +291,17 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
         }
         else if (a == 3)
         {
@@ -255,11 +312,29 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord + 3, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 3, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 3, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 3, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 3, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
         }
         else if (a == 4)
         {
@@ -270,14 +345,41 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-            PlayingfieldUser[Ycord + 2, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 2, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 2, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 2, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord + 3, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 3, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 3, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 3, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 3, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
 
-            PlayingfieldUser[Ycord + 4, Xcord] = "  O";
-            ForbiddenNumbers[Ycord + 4, Xcord] = true;
+            if (ForbiddenNumbers[Ycord + 4, Xcord] == false)
+            {
+                PlayingfieldUser[Ycord + 4, Xcord] = "  O";
+                ForbiddenNumbers[Ycord + 4, Xcord] = true;
+            }
+            else
+            {
+                InvalidShipPlacement();
+                a--;
+                continue;
+            }
         }
 
         PlayingfieldUser[Ycord, Xcord] = "  O";
@@ -438,9 +540,9 @@ while (cont)
         InvalidShipPlacement();
         continue;
     }
-
-    attackX--;
-
+    
+    attackX--; 
+   
     if (attackX <= -1 || attackX >= 10)
     {
         InvalidShipPlacement();
@@ -560,10 +662,11 @@ void WriteField(string[,] field)
         }
 
         Console.WriteLine();
-        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.BackgroundColor = ConsoleColor.DarkGreen;
         Console.ForegroundColor = ConsoleColor.Black;
     }
 }
+
 //Method for error in coordinate selection
 void InvalidShipPlacement()
 {
