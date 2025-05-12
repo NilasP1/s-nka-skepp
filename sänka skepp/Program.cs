@@ -99,6 +99,7 @@ for (int a = 0; a < 5; a++)
     }
     Xcord--;
 
+    //checks if cords are valid
     if (Xcord < 0 || Xcord >= 10)
     {
         InvalidShipPlacement();
@@ -146,6 +147,7 @@ for (int a = 0; a < 5; a++)
             continue;
         }
 
+        //checks if spot is forbidden
         if (ForbiddenNumbers[Ycord, Xcord + 1])
         {
             Console.WriteLine("There is already a ship in this spot");
@@ -154,6 +156,7 @@ for (int a = 0; a < 5; a++)
             a--; 
             continue;
         }
+        //   =)
 
         if(a == 2)
         {
@@ -366,6 +369,7 @@ for (int a = 0; a < 5; a++)
         ForbiddenNumbers[Ycord + 1, Xcord] = true;
     }
 
+    //this comment is here beacuse i wanted to place a comment here
     Console.Clear();
     Console.WriteLine("Next ship");
     Console.WriteLine(" ");
@@ -461,6 +465,7 @@ int compHit = 0;
 
 while (cont)
 {
+    //clears and writes everything again
     Console.Clear();
 
     WriteField(PlayingfieldUser);
@@ -487,6 +492,7 @@ while (cont)
 
     attackY--;
 
+    //Checks if that spot is valid
     if(attackY <= -1 || attackY >= 10)
     {
         InvalidShipPlacement();
@@ -520,12 +526,14 @@ while (cont)
     
     attackX--; 
    
+    //checks if it is a valid spot to attack
     if (attackX <= -1 || attackX >= 10)
     {
         InvalidShipPlacement();
         continue;
     }
 
+    //checks if that spot already has been attacked
     if (Playingfielduserattack[attackY, attackX] == "  X" || Playingfielduserattack[attackY, attackX] == "  O" )
     {
         InvalidShipPlacement();
@@ -559,7 +567,7 @@ while (cont)
         Console.WriteLine(" ");
     }
 
-    //Checks if you hit 10 times and won
+    //Checks if you hit 16 times and won
 
     if (hit == 16)
     {
@@ -609,6 +617,7 @@ while (cont)
     // Save attack position in PlayingfieldCompAttack
     PlayingfieldCompAttack[compAttackCordY2, compAttackCordX2] = "  X";
 
+    //checks if computer hit 16 times and won
     if (compHit == 16)
     {
         Console.WriteLine("Computer won!");
@@ -630,11 +639,13 @@ void WriteField(string[,] field)
 
         for (int o = 0; o < 10; o++)
         {
+            //changes color of ships to gray
             if (field[i, o] == "  O")
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             }
 
+            //changes color of already attacked spots to red
             if (field[i, o] == "  X")
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
