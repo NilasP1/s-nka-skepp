@@ -632,7 +632,12 @@ void WriteField(string[,] field)
         {
             if (field[i, o] == "  O")
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            }
+
+            if (field[i, o] == "  X")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
             }
             Console.Write(field[i, o] + " ");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
