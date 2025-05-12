@@ -17,7 +17,6 @@ for (int y = 0; y < 10; y++)
     }
 }
 
-
 //The computers playingfireld where it places it's ships
 string[,] Playingfieldcomputer = new string[10, 10];
 
@@ -28,7 +27,6 @@ for (int y = 0; y < 10; y++)
         Playingfieldcomputer[y, x] = "  #";
     }
 }
-
 
 //The playingfield that the user uses to attack
 string[,] Playingfielduserattack = new string[10, 10];
@@ -41,7 +39,6 @@ for (int y = 0; y < 10; y++)
     }
 }
 
-
 //Computers attack playingfield
 string[,] PlayingfieldCompAttack = new string[10, 10];
 
@@ -53,10 +50,8 @@ for (int y = 0; y < 10; y++)
     }
 }
 
-
 //ForbiddenNumbers array
 bool[,] ForbiddenNumbers = new bool[10, 10]; // false by default
-
 
 for (int a = 0; a < 5; a++)
 {
@@ -248,7 +243,6 @@ for (int a = 0; a < 5; a++)
                 a--;
                 continue;
             }
-
         }
 
         PlayingfieldUser[Ycord, Xcord] = "  O";
@@ -315,7 +309,6 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-
             if (TryPlaceShipVertical(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
                 // Placed successfully
@@ -325,7 +318,6 @@ for (int a = 0; a < 5; a++)
                 a--;
                 continue;
             }
-
         }
         else if (a == 4)
         {
@@ -346,7 +338,6 @@ for (int a = 0; a < 5; a++)
                 continue;
             }
 
-
             if (TryPlaceShipVertical(Ycord, Xcord, 3, PlayingfieldUser, ForbiddenNumbers))
             {
                 // Placed successfully
@@ -356,7 +347,6 @@ for (int a = 0; a < 5; a++)
                 a--;
                 continue;
             }
-
 
             if (TryPlaceShipVertical(Ycord, Xcord, 4, PlayingfieldUser, ForbiddenNumbers))
             {
@@ -682,7 +672,6 @@ bool TryPlaceShipVertical(int y, int x, int yOffset, string[,] playingField, boo
         return false;
     }
 }
-
 
 //Method for error in coordinate selection
 void InvalidShipPlacement()
